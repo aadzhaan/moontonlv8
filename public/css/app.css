@@ -999,14 +999,17 @@ select {
 .mt-\[30px\] {
   margin-top: 30px;
 }
+.mt-\[50px\] {
+  margin-top: 50px;
+}
 .mt-\[60px\] {
   margin-top: 60px;
 }
+.mt-\[70px\] {
+  margin-top: 70px;
+}
 .mt-auto {
   margin-top: auto;
-}
-.mt-\[50px\] {
-  margin-top: 50px;
 }
 .block {
   display: block;
@@ -1058,6 +1061,10 @@ select {
 }
 .h-\[6px\] {
   height: 6px;
+}
+.h-\[max-content\] {
+  height: -moz-max-content;
+  height: max-content;
 }
 .h-full {
   height: 100%;
@@ -1118,6 +1125,13 @@ select {
 }
 .max-w-7xl {
   max-width: 80rem;
+}
+.max-w-\[302px\] {
+  max-width: 302px;
+}
+.max-w-max {
+  max-width: -moz-max-content;
+  max-width: max-content;
 }
 .max-w-xl {
   max-width: 36rem;
@@ -1198,6 +1212,9 @@ select {
 .gap-1 {
   gap: 0.25rem;
 }
+.gap-10 {
+  gap: 2.5rem;
+}
 .gap-2 {
   gap: 0.5rem;
 }
@@ -1243,6 +1260,9 @@ select {
 .rounded-\[25px\] {
   border-radius: 25px;
 }
+.rounded-\[26px\] {
+  border-radius: 26px;
+}
 .rounded-\[30px\] {
   border-radius: 30px;
 }
@@ -1286,6 +1306,10 @@ select {
 }
 .border-t {
   border-top-width: 1px;
+}
+.border-\[\#F1F1F1\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(241 241 241 / var(--tw-border-opacity));
 }
 .border-gray-100 {
   --tw-border-opacity: 1;
@@ -1365,6 +1389,9 @@ select {
 .p-6 {
   padding: 1.5rem;
 }
+.p-\[13px\] {
+  padding: 13px;
+}
 .p-\[30px\] {
   padding: 30px;
 }
@@ -1415,6 +1442,10 @@ select {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
 .py-24 {
   padding-top: 6rem;
   padding-bottom: 6rem;
@@ -1430,6 +1461,10 @@ select {
 .py-\[13px\] {
   padding-top: 13px;
   padding-bottom: 13px;
+}
+.py-\[30px\] {
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 .pb-1 {
   padding-bottom: 0.25rem;
@@ -1486,6 +1521,9 @@ select {
 .text-\[26px\] {
   font-size: 26px;
 }
+.text-\[28px\] {
+  font-size: 28px;
+}
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -1505,6 +1543,9 @@ select {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+.font-bold {
+  font-weight: 700;
 }
 .font-light {
   font-weight: 300;
@@ -1650,6 +1691,9 @@ select {
 }
 .outline-2 {
   outline-width: 2px;
+}
+.outline-\[\#F1F1F1\] {
+  outline-color: #F1F1F1;
 }
 .outline-\[\#f1f1f1\] {
   outline-color: #f1f1f1;

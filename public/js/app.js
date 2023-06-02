@@ -2645,6 +2645,131 @@ function ResponsiveNavLink(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/Components/SubscriptionCard.js":
+/*!*****************************************************!*\
+  !*** ./resources/js/Components/SubscriptionCard.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ SubscriptionCard)
+/* harmony export */ });
+/* harmony import */ var _Components_Button__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Components/Button */ "./resources/js/Components/Button.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+function SubscriptionCard(_ref) {
+  var id = _ref.id,
+    name = _ref.name,
+    price = _ref.price,
+    duration = _ref.duration,
+    features = _ref.features,
+    buttontext = _ref.buttontext,
+    isPremium = _ref.isPremium,
+    onSelectSubscription = _ref.onSelectSubscription;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
+    children: [!isPremium && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "flex flex-col gap-[30px] py-[30px] px-7 outline outline-1 outline-[#F1F1F1] rounded-[26px] text-black w-[300px] h-[max-content]",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "text-sm mb-2",
+          children: name
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "text-[28px] font-bold",
+          children: ["IDR ", price.toLocaleString()]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
+          className: "text-gray-1 text-xs font-light",
+          children: ["/", duration, " months"]
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "flex flex-col gap-4",
+        children: features.map(function (feature, index) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: "flex items-center gap-2",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+              src: "/icons/ic_tick.svg",
+              alt: ""
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+              className: "text-sm",
+              children: feature
+            })]
+          }, "".concat(index, "-").concat(id, "-").concat(features));
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_Components_Button__WEBPACK_IMPORTED_MODULE_0__["default"], {
+          type: "button",
+          variant: "white-outline",
+          onClick: onSelectSubscription,
+          children: buttontext
+        })
+      })]
+    }), isPremium && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "flex flex-col gap-[30px] py-[30px] px-7 outline outline-1 outline-[#F1F1F1] rounded-[26px] text-white w-[300px] bg-black",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "bg-alerange rounded-full p-[13px] max-w-max",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+          src: "/icons/ic_star.svg",
+          width: "24",
+          alt: ""
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "text-sm mb-2",
+          children: name
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          className: "text-[28px] font-bold",
+          children: ["IDR ", price.toLocaleString()]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
+          className: "text-[#767676] text-xs font-light",
+          children: ["/", duration, " months"]
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "flex flex-col gap-4",
+        children: features.map(function (feature, index) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+            className: "flex items-center gap-2",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("svg", {
+              width: "24",
+              height: "24",
+              viewBox: "0 0 24 24",
+              fill: "none",
+              stroke: "currentColor",
+              xmlns: "http://www.w3.org/2000/svg",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+                d: "M8.4402 12.0001L10.8142 14.3731L15.5602 9.62708",
+                strokeWidth: "1.5",
+                strokeLinecap: "round",
+                strokeLinejoin: "round"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+                fillRule: "evenodd",
+                clipRule: "evenodd",
+                d: "M2.7498 12.0001C2.7498 18.9371 5.0628 21.2501 11.9998 21.2501C18.9368 21.2501 21.2498 18.9371 21.2498 12.0001C21.2498 5.06312 18.9368 2.75012 11.9998 2.75012C5.0628 2.75012 2.7498 5.06312 2.7498 12.0001Z",
+                strokeWidth: "1.5",
+                strokeLinecap: "round",
+                strokeLinejoin: "round"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+              className: "text-sm",
+              children: feature
+            })]
+          }, "".concat(index, "-").concat(id, "-").concat(features));
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_Components_Button__WEBPACK_IMPORTED_MODULE_0__["default"], {
+        type: "button",
+        variant: "primary",
+        onClick: onSelectSubscription,
+        children: buttontext
+      })]
+    })]
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/Components/ValidationErrors.js":
 /*!*****************************************************!*\
   !*** ./resources/js/Components/ValidationErrors.js ***!
@@ -4057,6 +4182,63 @@ function Login() {
         })
       })]
     })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Prototype/Pricing.js":
+/*!*************************************************!*\
+  !*** ./resources/js/Pages/Prototype/Pricing.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Pricing)
+/* harmony export */ });
+/* harmony import */ var _Layouts_Authenticated_Index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/Authenticated/Index */ "./resources/js/Layouts/Authenticated/Index.js");
+/* harmony import */ var _Components_SubscriptionCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/SubscriptionCard */ "./resources/js/Components/SubscriptionCard.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+function Pricing() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Layouts_Authenticated_Index__WEBPACK_IMPORTED_MODULE_0__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "ml-[300px] px-[50px]",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "py-20 flex flex-col items-center",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "text-black font-semibold text-[26px] mb-3",
+            children: "Pricing for Everyone"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+            className: "text-base text-gray-1 leading-7 max-w-[302px] text-center",
+            children: "Invest your little money to get a whole new experiences from movies."
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "flex justify-center gap-10 mt-[70px]",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components_SubscriptionCard__WEBPACK_IMPORTED_MODULE_1__["default"], {
+              name: "Basic",
+              price: 299999,
+              duration: 3,
+              features: ["Feature A", "Feature B", "Feature C"],
+              buttontext: "Start Basic"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components_SubscriptionCard__WEBPACK_IMPORTED_MODULE_1__["default"], {
+              isPremium: true,
+              name: "Premium",
+              price: 999999,
+              duration: 12,
+              features: ["Feature A", "Feature B", "Feature C", "Feature D", "Feature E", "Feature F"],
+              buttontext: "Subscribe Now"
+            })]
+          })]
+        })
+      })
+    })
   });
 }
 
@@ -63169,6 +63351,8 @@ var map = {
 	"./Prototype/Dashboard.js": "./resources/js/Pages/Prototype/Dashboard.js",
 	"./Prototype/Login": "./resources/js/Pages/Prototype/Login.js",
 	"./Prototype/Login.js": "./resources/js/Pages/Prototype/Login.js",
+	"./Prototype/Pricing": "./resources/js/Pages/Prototype/Pricing.js",
+	"./Prototype/Pricing.js": "./resources/js/Pages/Prototype/Pricing.js",
 	"./Prototype/Register": "./resources/js/Pages/Prototype/Register.js",
 	"./Prototype/Register.js": "./resources/js/Pages/Prototype/Register.js",
 	"./Welcome": "./resources/js/Pages/Welcome.js",
