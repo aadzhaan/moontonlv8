@@ -46,6 +46,9 @@ Route::prefix('prototype')->group(function () {
     Route::get('/pricing', function () {
         return Inertia::render('Prototype/Pricing');
     })->name('prototype.pricing');
+    Route::get('/movie/{slug}', function () {
+        return Inertia::render('Prototype/Movie/Show');
+    })->name('prototype.movie.show');
 });
 
 require __DIR__.'/auth.php';
