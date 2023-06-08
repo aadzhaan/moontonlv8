@@ -930,6 +930,10 @@ select {
   margin-top: auto;
   margin-bottom: auto;
 }
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 .-ml-px {
   margin-left: -1px;
 }
@@ -1315,6 +1319,9 @@ select {
 .border {
   border-width: 1px;
 }
+.border-2 {
+  border-width: 2px;
+}
 .border-b {
   border-bottom-width: 1px;
 }
@@ -1352,6 +1359,10 @@ select {
 }
 .border-transparent {
   border-color: transparent;
+}
+.border-red-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(220 38 38 / var(--tw-border-opacity));
 }
 .bg-\[\#f1f1f1\] {
   --tw-bg-opacity: 1;
