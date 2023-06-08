@@ -1,9 +1,32 @@
+import React, { useEffect } from 'react';
 import Input from '@/Components/Input';
 import Label from '@/Components/Label';
 import Button from '@/Components/Button';
-import { Head, Link } from '@inertiajs/inertia-react';
+import ValidationErrors from '@/Components/ValidationErrors';
+import { Head, Link, useForm } from '@inertiajs/inertia-react';
 
 export default function Login(){
+    const { data, setData, post, processing, errors, reset } = useForm({
+        email: '',
+        password: '',
+        remember: '',
+    });
+
+    useEffect(() => {
+        return () => {
+            //pada saat halaman baru pertama kali jalan (on mounted) dia akan menghapus / reset field password
+            reset('password');
+        };
+    }, []);
+
+    const onHandleChange = (event) => {
+        setData(event.target.name, event.target.value);
+    };
+
+    const submit = (e) => {
+        e.preventDefault();
+        post(route('login'));
+    };
     return (
         <>
         <Head title='Login'/>
@@ -22,27 +45,43 @@ export default function Login(){
                             Explore our new movies and get <br/>
                             the better insight for your life
                         </p>
+                        <ValidationErrors errors={errors}/>
                     </div>
-                    <form className="w-[370px]">
+                    
+                    <form className="w-[370px]" onSubmit={submit}>
                         <div className="flex flex-col gap-6">
                             <div>
                                 <Label forInput="email" value="Email Address"/>
-                                <Input type="email" name="email" placeholder="Email Address" variant="primary"/>
+                                <Input
+                                 type="email"
+                                 name="email"
+                                 value={data.email}
+                                 placeholder="Email Address" 
+                                 variant="primary"
+                                 isFocused={true} 
+                                 handleChange={onHandleChange} 
+                                 required
+                                 />
                             </div>
                             <div>
                                 <Label forInput="password" value="Password"/>
-                                <Input type="password" name="password" placeholder="Password" variant="primary"/>
+                                <Input
+                                 type="password"
+                                 name="password"
+                                 value={data.password}
+                                 placeholder="Password"
+                                 variant="primary"
+                                 handleChange={onHandleChange} 
+                                 required/>
                             </div>
                         </div>
                         <div className="grid space-y-[14px] mt-[30px]">
-                            <Link href={route('prototype.dashboard')}>
-                            <Button type="button" variant='primary'>
+                            <Button type="submit" processing={processing} variant='primary'>
                                 <span className="text-base font-semibold">
                                     Start Watching
                                 </span>
                             </Button>
-                            </Link>
-                            <Link href={route('prototype.register')}>
+                            <Link href={route('register')}>
                             <Button type="button" variant='light-outline'>
                                 <span className="text-base font-semibold">
                                 Create New Account
