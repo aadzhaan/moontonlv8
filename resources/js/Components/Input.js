@@ -13,10 +13,10 @@ Input.propTypes = {
     handleChange : PropTypes.func,
     placeholder : PropTypes.string,
     isError : PropTypes.bool,
-    type : PropTypes.oneOf(['text', 'number', 'email', 'password', 'file']),
+    type : PropTypes.oneOf(["text", "number", "email", "password", "file"]),
 }
 export default function Input({
-    type = 'text',
+    type = "text",
     name,
     value,
     defaultValue,
@@ -42,12 +42,12 @@ export default function Input({
         <div className="flex flex-col items-start">
             <input
                 type={type}
+                className={
+                    `rounded-2xl py-[13px] px-7 w-full ${isError && 'input-error'} input-${variant || ""} ${className || ""}`
+                }
                 name={name}
                 value={value}
                 defaultValue={defaultValue}
-                className={
-                    `rounded-2xl py-[13px] px-7 w-full ${isError && 'input-error'} input-${variant} ${className}`
-                }
                 ref={input}
                 autoComplete={autoComplete}
                 required={required}
