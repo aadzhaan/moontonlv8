@@ -20,7 +20,7 @@ class CreateUserSubscriptionsTable extends Migration
             $table->unsignedInteger('price');
             $table->dateTime('expired_date')->nullable();
             $table->string('payment_status', 10)->default("pending");
-            $table->string('snapToken');
+            $table->string('snapToken')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

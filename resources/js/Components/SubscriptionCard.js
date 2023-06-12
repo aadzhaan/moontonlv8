@@ -1,6 +1,6 @@
 import Button from '@/Components/Button';
 export default function SubscriptionCard({
-      id, name, price, duration, features, buttontext, isPremium, onSelectSubscription
+      id, name, price, duration, features, isPremium, onSelectSubscription
 }){
     return <>
     {!isPremium &&
@@ -29,7 +29,7 @@ export default function SubscriptionCard({
         {/* Bottom: CTA Button --> */}
         <div>
             <Button type='button' variant='white-outline' onClick={onSelectSubscription}>
-                {buttontext}
+                {name}
             </Button>
         </div>
     </div>
@@ -72,7 +72,7 @@ export default function SubscriptionCard({
 
                          {/* Bottom: CTA Button --> */}
                          <Button type='button' variant='primary' onClick={onSelectSubscription}>
-                            {buttontext}
+                            {name}
                          </Button>
     </div>
     }

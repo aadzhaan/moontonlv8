@@ -5,6 +5,8 @@ namespace App\Http\Middleware;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 use Tightenco\Ziggy\Ziggy;
+use Auth;
+use Carbon\Carbon;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -32,11 +34,24 @@ class HandleInertiaRequests extends Middleware
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
+    private function activePlan(){
+        $activePlan = Auth::user() ? Auth::user()->LastActiveUserSubscription : null;
+        if(!$activePlan){
+            return null;
+        }
+        $lastDay = Carbon::parse($activePlan->updated_at)->addMonths($activePlan->SubscriptionPlan->active_period_in_months);
+        $activeDay = Carbon::parse($activePlan->updated_at)->diffInDays($lastDay);
+        $remainingActiveDay = Carbon::parse($activePlan->expired_date)->diffInDays(Carbon::now());
+        return ['name' => $activePlan->SubscriptionPlan->name, 'active' => $activeDay, 'remainingActive' => $remainingActiveDay];
+    }
+
+
     public function share(Request $request)
     {
         return array_merge(parent::share($request), [
             'auth' => [
-                'user' => $request->user(),
+                'user' => $request->user(), //kalau pake inertia dia Auth usernya cuman ngambil data table aja kalau di blade kan langsung manggil modelnya
+                'activePlan' => $this->activePlan() //untuk ambil active subscription perlu diinisialisasi di class baru
             ],
             'ziggy' => function () {
                 return (new Ziggy)->toArray();

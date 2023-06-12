@@ -10,4 +10,8 @@ class SubscriptionPlan extends Model
 {
     use HasFactory, SoftDeletes;
     protected $fillable = ['name', 'price', 'active_period_in_months', 'featured'];
+    
+    public function UserSubscription(){
+        return $this->hasMany(UserSubscription::class, 'subscription_plan_id');
+    }
 }
