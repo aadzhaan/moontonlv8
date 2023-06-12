@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
-
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -43,4 +43,21 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function UserSubscription(){
+        return $this->hasMany(UserSubscription::class, 'user_id');
+    }
+
+    public function LastActiveUserSubscription(){
+        return $this->hasOne(UserSubscription::class)->wherePaymentStatus('paid')->latest();
+    }
+
+    public function getActiveSubscription(){
+        if(!$this->LastActiveUserSubscription){
+            return false;
+        }
+        $dateNow = Carbon::now();
+        $dateExpired = Carbon::create($this->LastActiveUserSubscription->expired_date);
+        return $dateNow->LessThanOrEqualTo($dateExpired);
+    }
 }

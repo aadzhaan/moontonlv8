@@ -13,6 +13,7 @@ export default function Button({
     type = 'submit', 
     variant = "primary",
     className = '', 
+    onClick, 
     processing, 
     children }) {
     return (
@@ -20,6 +21,7 @@ export default function Button({
             type={type}
             className={`rounded-2xl py-[13px] text-center w-full btn-${variant} ${processing && 'opacity-25'} ${className}`}
             disabled={processing}
+            onClick={onClick}
         >
             {children}
         </button>
