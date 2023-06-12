@@ -34,9 +34,9 @@ use App\Http\Controllers\User\SubscriptionPlanController;
 Route::redirect('/', '/login');
 Route::middleware(['auth', 'role:user'])->prefix('dashboard')->name('user.dashboard.')->group(function(){
     Route::get('/', [DashboardController::class, 'index'])->name('index');
-    Route::get('/movie/{movie:slug}', [MovieController::class, 'show'])->name('movie.show');
-    Route::get('/subscription-plan', [SubscriptionPlanController::class, 'index'])->name('subscription-plan.index');
-    Route::post('/subscription-plan/{subscriptionPlan}/user-subscribe', [SubscriptionPlanController::class, 'user_subscribe'])->name('subscription-plan.user-subscribe');
+    Route::get('/movie/{movie:slug}', [MovieController::class, 'show'])->name('movie.show')->middleware('checkUserSubscription:true');
+    Route::get('/subscription-plan', [SubscriptionPlanController::class, 'index'])->name('subscription-plan.index')->middleware('checkUserSubscription:false');
+    Route::post('/subscription-plan/{subscriptionPlan}/user-subscribe', [SubscriptionPlanController::class, 'user_subscribe'])->name('subscription-plan.user-subscribe')->middleware('checkUserSubscription:false');
 });
 // Route::get('/dashboard', function () {
 //     return Inertia::render('User/Dashboard/Index');
