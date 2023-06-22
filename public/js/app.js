@@ -2165,6 +2165,38 @@ function Button(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/Components/Checkbox.js":
+/*!*********************************************!*\
+  !*** ./resources/js/Components/Checkbox.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Checkbox)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function Checkbox(_ref) {
+  var name = _ref.name,
+    value = _ref.value,
+    handleChange = _ref.handleChange;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("input", {
+    type: "checkbox",
+    name: name,
+    value: value,
+    className: "rounded border-gray-300 text-alerange-600 shadow-sm focus:border-alerange-300 focus:ring focus:ring-alerange-200 focus:ring-opacity-50",
+    onChange: function onChange(e) {
+      return handleChange(e);
+    }
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/Components/DetailSubscription.js":
 /*!*******************************************************!*\
   !*** ./resources/js/Components/DetailSubscription.js ***!
@@ -2453,6 +2485,31 @@ function FeaturedMovie(_ref) {
         className: "inset-0 absolute z-50"
       })]
     })
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/Components/FlashMessage.js":
+/*!*************************************************!*\
+  !*** ./resources/js/Components/FlashMessage.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ FlashMessage)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+function FlashMessage(_ref) {
+  var className = _ref.className,
+    _ref$message = _ref.message,
+    message = _ref$message === void 0 ? '' : _ref$message;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+    className: "flex bg-green-100 rounded p-4 mb-4 text-sm text-green-700 ".concat(className),
+    children: message
   });
 }
 
@@ -3464,6 +3521,199 @@ function Guest(_ref) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg",
       children: children
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Admin/Movie/Create.js":
+/*!**************************************************!*\
+  !*** ./resources/js/Pages/Admin/Movie/Create.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Create)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Components_Input__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/Input */ "./resources/js/Components/Input.js");
+/* harmony import */ var _Components_Checkbox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/Checkbox */ "./resources/js/Components/Checkbox.js");
+/* harmony import */ var _Components_Label__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Components/Label */ "./resources/js/Components/Label.js");
+/* harmony import */ var _Components_Button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/Button */ "./resources/js/Components/Button.js");
+/* harmony import */ var _Components_ValidationErrors__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Components/ValidationErrors */ "./resources/js/Components/ValidationErrors.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var _Layouts_Authenticated_Index__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/Layouts/Authenticated/Index */ "./resources/js/Layouts/Authenticated/Index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+
+
+
+function Create(_ref) {
+  var auth = _ref.auth;
+  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_6__.useForm)({
+      name: '',
+      category: '',
+      video_url: '',
+      thumbnail: '',
+      rating: '',
+      is_featured: false
+    }),
+    data = _useForm.data,
+    setData = _useForm.setData,
+    post = _useForm.post,
+    processing = _useForm.processing,
+    errors = _useForm.errors;
+  var onHandleChange = function onHandleChange(event) {
+    setData(event.target.name, event.target.type === 'file' ? event.target.files[0] : event.target.value);
+  };
+  var submit = function submit(e) {
+    e.preventDefault();
+    post(route('admin.dashboard.movie.store'));
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_Layouts_Authenticated_Index__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    auth: auth,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h1", {
+      className: "text-xl",
+      children: "Insert a New Movie"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("hr", {
+      className: "mt-2 mb-4"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_ValidationErrors__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      errors: errors
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("form", {
+      onSubmit: submit,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          forInput: "name",
+          value: "Title"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Input__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          type: "text",
+          name: "name",
+          placeholder: "Enter Title of the Movie",
+          variant: "primary-outline",
+          handleChange: onHandleChange,
+          isError: errors.name,
+          required: true
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          forInput: "category",
+          className: "mt-4",
+          value: "Category"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Input__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          type: "text",
+          name: "category",
+          placeholder: "Enter Category of the Movie",
+          variant: "primary-outline",
+          handleChange: onHandleChange,
+          isError: errors.category,
+          required: true
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          forInput: "video_url",
+          className: "mt-4",
+          value: "Movie Link"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Input__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          type: "text",
+          name: "video_url",
+          placeholder: "Enter Video Link of the Movie",
+          variant: "primary-outline",
+          handleChange: onHandleChange,
+          isError: errors.video_url,
+          required: true
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          forInput: "thumbnail",
+          className: "mt-4",
+          value: "Thumbnail"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Input__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          type: "file",
+          name: "thumbnail",
+          placeholder: "Enter Thumbnail of the Movie",
+          variant: "primary-outline",
+          handleChange: onHandleChange,
+          isError: errors.category,
+          required: true
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          forInput: "rating",
+          className: "mt-4",
+          value: "Rating"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Input__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          type: "number",
+          name: "rating",
+          placeholder: "Enter Rating of the Movie",
+          variant: "primary-outline",
+          handleChange: onHandleChange,
+          isError: errors.rating,
+          required: true
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+          className: "flex flex-row mt-4 items-center",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Checkbox__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            name: "is_featured",
+            handleChange: function handleChange(e) {
+              return setData("is_featured", e.target.checked);
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Label__WEBPACK_IMPORTED_MODULE_3__["default"], {
+            forInput: "is_featured",
+            className: "mx-4 mt-2",
+            value: "Is Featured"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          type: "submit",
+          processing: processing,
+          variant: "primary",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
+            className: "text-base font-semibold",
+            children: "Save"
+          })
+        })]
+      })
+    })]
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Admin/Movie/Index.js":
+/*!*************************************************!*\
+  !*** ./resources/js/Pages/Admin/Movie/Index.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Index)
+/* harmony export */ });
+/* harmony import */ var _Layouts_Authenticated_Index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/Authenticated/Index */ "./resources/js/Layouts/Authenticated/Index.js");
+/* harmony import */ var _Components_Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/Button */ "./resources/js/Components/Button.js");
+/* harmony import */ var _Components_FlashMessage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/FlashMessage */ "./resources/js/Components/FlashMessage.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+function Index(_ref) {
+  var auth = _ref.auth,
+    flashMessage = _ref.flashMessage;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_Layouts_Authenticated_Index__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    auth: auth,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.Link, {
+      href: route('admin.dashboard.movie.create'),
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        type: "button",
+        className: "w-40 mb-8",
+        children: "Insert New Movie"
+      })
+    }), (flashMessage === null || flashMessage === void 0 ? void 0 : flashMessage.message) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components_FlashMessage__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      message: flashMessage.message
     })]
   });
 }
@@ -69071,6 +69321,10 @@ return Unipointer;
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var map = {
+	"./Admin/Movie/Create": "./resources/js/Pages/Admin/Movie/Create.js",
+	"./Admin/Movie/Create.js": "./resources/js/Pages/Admin/Movie/Create.js",
+	"./Admin/Movie/Index": "./resources/js/Pages/Admin/Movie/Index.js",
+	"./Admin/Movie/Index.js": "./resources/js/Pages/Admin/Movie/Index.js",
 	"./Auth/ConfirmPassword": "./resources/js/Pages/Auth/ConfirmPassword.js",
 	"./Auth/ConfirmPassword.js": "./resources/js/Pages/Auth/ConfirmPassword.js",
 	"./Auth/ForgotPassword": "./resources/js/Pages/Auth/ForgotPassword.js",
