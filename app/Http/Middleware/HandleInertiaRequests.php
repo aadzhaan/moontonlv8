@@ -7,6 +7,7 @@ use Inertia\Middleware;
 use Tightenco\Ziggy\Ziggy;
 use Auth;
 use Carbon\Carbon;
+use Session;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -52,6 +53,10 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(), //kalau pake inertia dia Auth usernya cuman ngambil data table aja kalau di blade kan langsung manggil modelnya
                 'activePlan' => $this->activePlan() //untuk ambil active subscription perlu diinisialisasi di class baru
+            ],
+            'flashMessage' => [
+                'message' => Session::get('message'),
+                'type' => Session::get('type')
             ],
             'ziggy' => function () {
                 return (new Ziggy)->toArray();

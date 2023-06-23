@@ -2,10 +2,10 @@
     @apply bg-alerange text-white hover:bg-alerange;
 }
 .btn-warning{
-    @apply bg-yellow-500 text-white;
+    @apply bg-yellow-500 text-white hover:bg-yellow-500;
 }
 .btn-danger{
-    @apply bg-red-500 text-white;
+    @apply bg-red-500 text-white hover:bg-red-500;
 }
 .btn-light-outline{
     @apply text-white border border-white;
